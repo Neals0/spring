@@ -66,7 +66,6 @@ public class UtilisateurController {
     @JsonView(VueUtilisateur.class)
     public List<Utilisateur> getUtilisateur(@PathVariable String nomPays) {
 
-        //return utilisateurDao.testBidon();
 
         return utilisateurDao.trouveUtilisateurSelonPays(nomPays);
     }

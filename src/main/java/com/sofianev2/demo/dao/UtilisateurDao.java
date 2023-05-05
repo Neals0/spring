@@ -18,7 +18,5 @@ public interface UtilisateurDao extends JpaRepository<Utilisateur, Integer> {
     @Query("FROM Utilisateur U JOIN U.pays P WHERE P.nom = :pays")
     List<Utilisateur> trouveUtilisateurSelonPays(@Param("pays") String pays);
 
-    @Query("SELECT new ImageDto(U.id, U.imageProfile) FROM Utilisateur U")
-    List<ImageDto> testBidon();
 
 }
