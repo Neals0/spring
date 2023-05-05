@@ -9,6 +9,6 @@ public class HelloController {
     @GetMapping("/")
     // Quelle route est liée à cette méthode ? > GetMapping
     public String hello() {
-        return "Le serveur marche mais y'a rien ici !";
+        return "Le serveur marche mais il n'y a rien ici !";
     }
 }
