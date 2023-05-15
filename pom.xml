@@ -18,6 +18,7 @@
 
     <properties>
         <java.version>11</java.version>
+        <skipUnitTest>true</skipUnitTest>
     </properties>
 
     <dependencies>
@@ -85,39 +86,46 @@
     <profiles>
         <profile>
             <id>dev</id>
+            <skipTests>false</skipTests>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
+
             <properties>
                 <adresse_serveur_bdd>localhost:3306</adresse_serveur_bdd>
                 <nom_bdd>spring_mns_23</nom_bdd>
                 <utilisateur_bdd>root</utilisateur_bdd>
                 <mot_de_passe_bdd>root</mot_de_passe_bdd>
-
                 <ddl_auto>create</ddl_auto>
                 <nom_fichier_sql>mysql</nom_fichier_sql>
                 <initialisation_donnee_bdd>true</initialisation_donnee_bdd>
                 <mode_initialisation_donnee_bdd>always</mode_initialisation_donnee_bdd>
-                <dossier_upload>C:\\\\Users\\S\\Downloads\\demo (1)\\demo\\file</dossier_upload>
-
+                <dossier_upload> A changer dans le fichier C:\Users\S\.m2\settings.xml </dossier_upload>
+                <jwt_secret>azerty</jwt_secret>
             </properties>
+
         </profile>
 
         <profile>
             <id>prod</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+
             <properties>
+                <skipTests>true</skipTests>
                 <adresse_serveur_bdd>172.18.0.2:3306</adresse_serveur_bdd>
                 <nom_bdd>spring_mns_23</nom_bdd>
                 <utilisateur_bdd>root</utilisateur_bdd>
-                <mot_de_passe_bdd>evsCe9NSaHeY</mot_de_passe_bdd>
-
+                <mot_de_passe_bdd>Info à définir dans le fichier settings.xml du serveur</mot_de_passe_bdd>
                 <ddl_auto>none</ddl_auto>
                 <nom_fichier_sql></nom_fichier_sql>
                 <initialisation_donnee_bdd>false</initialisation_donnee_bdd>
                 <mode_initialisation_donnee_bdd>never</mode_initialisation_donnee_bdd>
                 <dossier_upload>/uploads</dossier_upload>
-
+                <jwt_secret>Info à définir dans le fichier settings.xml du serveur</jwt_secret>
             </properties>
+
         </profile>
     </profiles>
 
@@ -142,7 +150,7 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M6</version>
                 <configuration>
-                    <skipTests>true</skipTests>
+                    <skipTests>${skipUnitTest}</skipTests>
                 </configuration>
             </plugin>
 

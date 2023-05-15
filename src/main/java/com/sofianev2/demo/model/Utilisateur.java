@@ -8,12 +8,11 @@ import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Calendar;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 @Getter
@@ -47,8 +46,9 @@ public class Utilisateur {
     private Pays pays;
 
     @JsonView({VueUtilisateur.class, VueEntreprise.class})
-    @ManyToOne
-    private Role role;
+    @ManyToMany
+    @JoinTable(name = "role_utilisateur", inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private List<Role> roles = new ArrayList<>();
 
     //@JsonIgnore
     @ManyToOne

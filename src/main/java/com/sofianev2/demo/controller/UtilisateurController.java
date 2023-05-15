@@ -151,7 +151,7 @@ public class UtilisateurController {
 
         Role role = new Role();
         role.setId(1); // par défaut lors d'un ajout d'user on associe le role n°1
-        nouvelUtilisateur.setRole(role);
+        nouvelUtilisateur.getRoles().add(role);
 
         String passwordHache = passwordEncoder.encode("root");
         nouvelUtilisateur.setMotDePasse(passwordHache);

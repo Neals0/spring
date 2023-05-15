@@ -1,5 +1,6 @@
 package com.sofianev2.demo.security;
 
+import com.sofianev2.demo.model.Role;
 import com.sofianev2.demo.model.Utilisateur;
 import jdk.jshell.execution.Util;
 import org.springframework.security.core.GrantedAuthority;
@@ -24,9 +25,9 @@ public class MonUserDetails implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
 
-        List<GrantedAuthority> roles = new ArrayList<>();
-
-        return List.of(new SimpleGrantedAuthority(utilisateur.getRole().getNom()));
+//        List<GrantedAuthority> roles = new ArrayList<>();
+//
+//        return List.of(new SimpleGrantedAuthority(utilisateur.getRole().getNom()));
 
         // return List.of(new SimpleGrantedAuthority(utilisateur.isAdmin() ? "ROLE_ADMINISTRATEUR" : "ROLE_UTILISATEUR"));
 
@@ -43,6 +44,14 @@ public class MonUserDetails implements UserDetails {
 //         return utilisateur.isAdmin()
 //                 ? List.of(new SimpleGrantedAuthority("ADMINISTRATEUR"))
 //                 : List.of(new SimpleGrantedAuthority("UTILISATEUR"));
+
+        List<GrantedAuthority> authorities = new ArrayList<>();
+
+        for (Role role : utilisateur.getRoles()) {
+            authorities.add(new SimpleGrantedAuthority(role.getNom()));
+        }
+
+        return authorities;
 
     }
 
