@@ -86,7 +86,7 @@
     <profiles>
         <profile>
             <id>dev</id>
-            <skipTests>false</skipTests>
+            <skipUnitTest>false</skipUnitTest>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
@@ -113,7 +113,7 @@
             </activation>
 
             <properties>
-                <skipTests>true</skipTests>
+                <skipUnitTest>true</skipUnitTest>
                 <adresse_serveur_bdd>172.18.0.2:3306</adresse_serveur_bdd>
                 <nom_bdd>spring_mns_23</nom_bdd>
                 <utilisateur_bdd>root</utilisateur_bdd>
