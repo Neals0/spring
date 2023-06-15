@@ -13,7 +13,7 @@ import java.util.Optional;
 public interface UtilisateurDao extends JpaRepository<Utilisateur, Integer> {
 
     Utilisateur findByPrenom(String prenom);
-    @Query("FROM Utilisateur U JOIN FETCH U.roles")
+    @Query("FROM Utilisateur U JOIN FETCH U.roles WHERE U.email = :email")
     Optional<Utilisateur> findByEmail(@Param("email") String email);
 
     @Query("FROM Utilisateur U JOIN U.pays P WHERE P.nom = :pays")

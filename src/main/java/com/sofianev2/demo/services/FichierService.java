@@ -26,14 +26,14 @@ public class FichierService {
             Files.createDirectories(cheminDossierUpload);
         }
 
-        Path destination = Paths.get(dossierUpload + "\\" + nomFichier); // retrieve the image by its name
+        Path destination = Paths.get(dossierUpload + "/" + nomFichier); // retrieve the image by its name
 
-        Files.copy(fichier.getInputStream(),destination, StandardCopyOption.REPLACE_EXISTING);
+        Files.copy(fichier.getInputStream(), destination, StandardCopyOption.REPLACE_EXISTING);
     }
 
     public byte[] getImageByName(String nomImage) throws FileNotFoundException {
 
-        Path destination = Paths.get(dossierUpload+"/"+nomImage);// retrieve the image by its name
+        Path destination = Paths.get(dossierUpload + "/" + nomImage);// retrieve the image by its name
 
         try {
             return IOUtils.toByteArray(destination.toUri());

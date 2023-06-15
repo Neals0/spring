@@ -86,12 +86,12 @@
     <profiles>
         <profile>
             <id>dev</id>
-            <skipUnitTest>false</skipUnitTest>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
 
             <properties>
+                <skipUnitTest>false</skipUnitTest>
                 <adresse_serveur_bdd>localhost:3306</adresse_serveur_bdd>
                 <nom_bdd>spring_mns_23</nom_bdd>
                 <utilisateur_bdd>root</utilisateur_bdd>
