@@ -60,7 +60,7 @@ public class ConfigurationSecurite extends WebSecurityConfigurerAdapter {
 
         http.cors().configurationSource(httpServletRequest -> {
                     CorsConfiguration corsConfiguration = new CorsConfiguration();
-                    corsConfiguration.setAllowedOrigins(List.of("http://localhost:4200")); //ajout avec Rob
+                    corsConfiguration.setAllowedOrigins(List.of("*")); //ajout avec Rob
                     corsConfiguration.applyPermitDefaultValues();
                     corsConfiguration.setAllowedMethods(Arrays.asList("GET", "POST", "DELETE", "PUT"));
                     corsConfiguration.setAllowedHeaders(
