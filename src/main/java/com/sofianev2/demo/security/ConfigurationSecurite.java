@@ -61,11 +61,11 @@ public class ConfigurationSecurite extends WebSecurityConfigurerAdapter {
         http.cors().configurationSource(httpServletRequest -> {
                     CorsConfiguration corsConfiguration = new CorsConfiguration();
                     corsConfiguration.setAllowedOrigins(List.of("*")); //ajout avec Rob
-                    corsConfiguration.applyPermitDefaultValues();
                     corsConfiguration.setAllowedMethods(Arrays.asList("GET", "POST", "DELETE", "PUT"));
                     corsConfiguration.setAllowedHeaders(
                             Arrays.asList("X-Requested-With", "Origin", "Content-Type",
                                     "Accept", "Authorization", "Access-Control-Allow-Origin"));
+                    corsConfiguration.applyPermitDefaultValues();
                     return corsConfiguration;
                 }).and()
                 .csrf().disable()
